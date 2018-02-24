@@ -1,7 +1,7 @@
+
 <!DOCTYPE html><html><head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114662175-1"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-1035932643"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -24,12 +24,14 @@
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script>
-  var initialLoad = false;
+  var submitted = false;
+  var startTime = new Date().getTime();
   $("iframe").on('load', function(){
-    if (initialLoad) {
-      gtag('event', 'conversion', {'send_to': 'AW-1035932643/GXuGCJ3O_X0Q46f87QM'});
-    } else {
-      initialLoad = true;
+    if (submitted) return;
+    var submitTime = new Date().getTime();
+    if (submitTime - startTime > 10000) {
+        gtag('event', 'conversion', {'send_to': 'AW-1035932643/GXuGCJ3O_X0Q46f87QM'});
+        submitted = true;
     }
   });
   </script>
