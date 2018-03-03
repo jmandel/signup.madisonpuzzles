@@ -45,6 +45,7 @@
     if (submitted) return;
     var submitTime = new Date().getTime();
     if (submitTime - startTime > 10000) {
+        fbq('track', 'CompleteRegistration');
         gtag('event', 'conversion', {'send_to': 'AW-1035932643/GXuGCJ3O_X0Q46f87QM'});
         submitted = true;
     }
